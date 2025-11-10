@@ -75,7 +75,7 @@ impl<'info, T: ZeroCopy + Owner> AccountLoad<'info, T> {
             return Err(ErrorCode::AccountDiscriminatorAlreadySet.into());
         }
 
-        // write discriminator
+        // Write discriminator
         data[..8].copy_from_slice(&T::DISCRIMINATOR);
 
         Ok(RefMut::map(data, |data| {
